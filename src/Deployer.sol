@@ -17,16 +17,24 @@ contract KernelDeployer is Test {
 
     function deployKernelImplementation() private {
         vm.etch(address(kernelImplementation), kernelBytecode);
-        vm.label(address(kernelImplementation), "KernelImplementationV3.3");
+        vm.label(address(kernelImplementation), "KernelImplementation");
     }
 
     function deployKernelFactory() private {
         vm.etch(address(kernelFactory), factoryBytecode);
-        vm.label(address(kernelFactory), "KernelFactoryV3.3");
+        vm.label(address(kernelFactory), "KernelFactory");
+    }
+
+    function getKernelInitData(bytes memory salt) internal view returns (bytes memory _init) {
+        //
     }
 
     function deployKernel() internal {
         deployKernelImplementation();
         deployKernelFactory();
+    }
+
+    function createKernel(bytes32 salt) internal returns (IKernel kernel) {
+        //
     }
 }
